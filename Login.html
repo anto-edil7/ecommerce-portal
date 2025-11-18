@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>User Login</h2>
+
+<form onsubmit="return validateLogin()">
+    Email: <input type="text" id="email"><br><br>
+    Password: <input type="password" id="pass"><br><br>
+    <button type="submit">Login</button>
+</form>
+
+<p id="msg"></p>
+
+<script>
+function validateLogin() {
+    let e = document.getElementById("email").value;
+    let p = document.getElementById("pass").value;
+
+    if (e == "" || p == "") {
+        document.getElementById("msg").innerHTML = "Please fill all fields.";
+        return false;
+    }
+    if (p.length < 6) {
+        document.getElementById("msg").innerHTML = "Password must be 6 characters.";
+        return false;
+    }
+    document.getElementById("msg").innerHTML = "Login Successful!";
+    return false;
+}
+</script>
+
+</body>
+</html>

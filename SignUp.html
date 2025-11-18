@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Create Account</h2>
+
+<form onsubmit="return validateSignup()">
+    Name: <input type="text" id="name"><br><br>
+    Email: <input type="text" id="email"><br><br>
+    Phone: <input type="text" id="phone"><br><br>
+    Password: <input type="password" id="pass"><br><br>
+    Confirm Password: <input type="password" id="cpass"><br><br>
+    <button type="submit">Sign Up</button>
+</form>
+
+<p id="msg"></p>
+
+<script>
+function validateSignup() {
+    let n = document.getElementById("name").value;
+    let e = document.getElementById("email").value;
+    let ph = document.getElementById("phone").value;
+    let p = document.getElementById("pass").value;
+    let cp = document.getElementById("cpass").value;
+
+    if (n=="" || e=="" || ph=="" || p=="" || cp=="") {
+        document.getElementById("msg").innerHTML = "All fields are required.";
+        return false;
+    }
+    if (ph.length != 10) {
+        document.getElementById("msg").innerHTML = "Phone must be 10 digits.";
+        return false;
+    }
+    if (p != cp) {
+        document.getElementById("msg").innerHTML = "Passwords do not match.";
+        return false;
+    }
+    document.getElementById("msg").innerHTML = "Registration Successful!";
+    return false;
+}
+</script>
+
+</body>
+</html>
